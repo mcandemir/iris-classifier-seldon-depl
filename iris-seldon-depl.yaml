@@ -1,0 +1,15 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: iris-classifier
+  namespace: seldon
+spec:
+  name: iris
+  predictors:
+  - graph:
+      children: []
+      implementation: SKLEARN_SERVER
+      modelUri: https://github.com/mcandemir/iris-classifier-seldon-depl/raw/master/Model/iris-pipeline.joblib
+      name: classifier
+    name: default
+    replicas: 1
